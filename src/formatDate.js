@@ -9,12 +9,11 @@
  */
 function formatDate(date, fromFormat, toFormat) {
   const splitDate = date.split(fromFormat[3]);
-  const slFromFormat = fromFormat.slice(0, 3);
   const slToFormat = toFormat.slice(0, 3);
-  const day = splitDate[slFromFormat.indexOf('DD')];
-  const month = splitDate[slFromFormat.indexOf('MM')];
-  const yearLong = splitDate[slFromFormat.indexOf('YYYY')];
-  const yearShort = splitDate[slFromFormat.indexOf('YY')] || yearLong.slice(-2);
+  const day = splitDate[fromFormat.indexOf('DD')];
+  const month = splitDate[fromFormat.indexOf('MM')];
+  const yearLong = splitDate[fromFormat.indexOf('YYYY')];
+  const yearShort = splitDate[fromFormat.indexOf('YY')] || yearLong.slice(-2);
   const separator = toFormat[3];
   const dateParts = {
     DD: day,

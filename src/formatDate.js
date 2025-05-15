@@ -23,17 +23,18 @@ function formatDate(date, fromFormat, toFormat) {
   };
 
   for (let i = 0; i < slToFormat.length; i++) {
-    if (slToFormat[i] === 'YYYY' && Number(yearShort) < 30) {
-      dateParts[slToFormat[i]] = '20' + yearShort;
-    }
+    if (fromFormat.indexOf('YYYY') === -1) {
+      if (slToFormat[i] === 'YYYY' && Number(yearShort) < 30) {
+        dateParts[slToFormat[i]] = '20' + yearShort;
+      }
 
-    if (slToFormat[i] === 'YYYY' && Number(yearShort) >= 30) {
-      dateParts[slToFormat[i]] = '19' + yearShort;
+      if (slToFormat[i] === 'YYYY' && Number(yearShort) >= 30) {
+        dateParts[slToFormat[i]] = '19' + yearShort;
+      }
     }
     slToFormat[i] = dateParts[slToFormat[i]];
   }
 
   return slToFormat.join(separator);
 }
-
 module.exports = formatDate;
